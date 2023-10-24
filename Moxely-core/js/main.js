@@ -190,7 +190,7 @@ jQuery(document).ready(function () {
 
     var respWidth = window.innerWidth;
 
-	if (respWidth >= 767) {
+	if (respWidth >= 768) {
     	jQuery('.navbar .dropdown').hover(function () {
     		jQuery(this).find('.dropdown-menu').first().stop(true, true).delay(150).slideDown('fast');
 
@@ -211,48 +211,6 @@ jQuery(document).ready(function () {
     }
 	
 });
-
-jQuery(function () {
-
-	var $window = jQuery(window),
-		win_height_padded = $window.height() * 1.1;
-
-	$window.on('scroll', revealOnScroll);
-
-	function revealOnScroll() {
-		var scrolled = $window.scrollTop(),
-			win_height_padded = $window.height() * 1.1;
-
-		// Showed...
-		$(".revealOnScroll:not(.animated)").each(function () {
-			var $this = $(this),
-				offsetTop = $this.offset().top;
-
-			if (scrolled + win_height_padded > offsetTop) {
-				if ($this.data('timeout')) {
-					window.setTimeout(function () {
-						$this.addClass('animated ' + $this.data('animation'));
-						$this.removeClass('revealOnScroll');
-					}, parseInt($this.data('timeout'), 10));
-				} else {
-					$this.addClass('animated ' + $this.data('animation'));
-					$this.removeClass('revealOnScroll');
-				}
-			}
-		});
-		// Hidden...
-		$(".revealOnScroll.animated").each(function (index) {
-			var $this = $(this),
-				offsetTop = $this.offset().top;
-			if (scrolled + win_height_padded < offsetTop) {
-				$(this).removeClass('revealOnScroll animated');
-			}
-		});
-	}
-
-	revealOnScroll();
-});
-
 
 $(document).ready(function () {
 
@@ -341,31 +299,6 @@ jQuery(function () {
 		jQuery(qtyInput).val(incrementedVal);
 	});
 	
-    // Animations ScrollReveal
-    jQuery('body:not(".view-cart") .product-item').each(function () {
-//        jQuery('.product-item').addClass('lazy-products');
-    });
-
-	if(typeof ScrollReveal === "function") {
-		// Changing the defaults
-		window.sr = ScrollReveal({ reset: true });
-
-		// Customizing a reveal set
-		sr.reveal('.lazy', { 
-			duration: 1000,
-			origin: 'bottom'
-		});
-
-		sr.reveal('.lazy2', { 
-			duration: 1000,
-			reset: false,
-			origin: 'right'
-		});
-
-		sr.reveal('.lazy-products', { 
-			duration: 2000
-		});
-	}
 });
 
 //ddmenu build and animations with hoverintent
@@ -442,3 +375,6 @@ $(document).ready(function (){
 		}, 1000);
 	});
 });
+setTimeout(function(){
+      $('.antiCls').css("visibility", "visible");
+  }, 800);
